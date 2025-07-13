@@ -2,7 +2,6 @@ using System;
 using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +13,7 @@ public class AccountController(SignInManager<User> signInManager) : BaseApiContr
     [HttpPost("register")]
     public async Task<ActionResult> RegisterUser(RegisterDto registerDto)
     {
-        var user = new User { UserName = registerDto.Email, Email = registerDto.Email };
+        var user = new User{UserName = registerDto.Email, Email = registerDto.Email};
 
         var result = await signInManager.UserManager.CreateAsync(user, registerDto.Password);
 
@@ -44,7 +43,7 @@ public class AccountController(SignInManager<User> signInManager) : BaseApiContr
 
         var roles = await signInManager.UserManager.GetRolesAsync(user);
 
-        return Ok(new
+        return Ok(new 
         {
             user.Email,
             user.UserName,

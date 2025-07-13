@@ -1,9 +1,8 @@
-
 import { Button, Menu, Fade, MenuItem, ListItemIcon, ListItemText, Divider } from "@mui/material";
 import { useState } from "react";
+import type { User } from "../models/user";
 import { History, Logout, Person } from "@mui/icons-material";
 import { useLogoutMutation } from "../../features/account/accountApi";
-import type { User } from "../models/user";
 
 type Props = {
     user: User
