@@ -29,7 +29,7 @@ builder.Services.AddIdentityApiEndpoints<User>(opt =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuration for HTTP request pipeline.
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseDefaultFiles();
